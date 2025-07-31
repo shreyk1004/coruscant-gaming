@@ -112,4 +112,28 @@ export interface GamifiedGame {
 export interface UserInput {
   goal_description: string;
   interest_theme: string;
+}
+
+// New types for decision tree flow
+export interface DecisionOption {
+  id: string;
+  title: string;
+  description: string;
+  preview?: string;
+}
+
+export interface DecisionLevel {
+  level: number;
+  title: string;
+  description: string;
+  options: DecisionOption[];
+  selected_option?: string;
+}
+
+export interface GameGenerationState {
+  user_input: UserInput;
+  decisions: DecisionLevel[];
+  current_level: number;
+  is_complete: boolean;
+  final_game?: GamifiedGame;
 } 
